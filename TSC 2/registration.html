@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="./style.css">
+        <title></title>
+        <script src="./index.js"></script>
+    </head>
+
+    <body>
+        <div class="main">
+            <h1 class="reghead">Registration form</h1>
+            <div class="formdiv">
+                <a class="button" href="./login.html">Login</a>
+                <form onsubmit="checkData()" autocomplete="off">
+                    <div class="innformdiv">
+                    <label for="name">Full Name:</label>
+                    <input id="name" type="text" required >
+                    <label for="email">Email:</label>
+                    <input id="email" type="email"  required>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" required>
+                    <label for="cpassword">Confirm Password:</label>
+                    <input id="cpassword" type="password" required>
+                    <input class="button" type="reset" style="bottom: 0px;">
+                    <button type="submit" onclick="">Register</button>
+                </div>
+                </form>
+                
+            </div>
+        </div>
+
+    </body>
+</html>

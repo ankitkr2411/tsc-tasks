@@ -1,0 +1,136 @@
+
+*{
+    margin: 0px;
+    padding:0px;
+}
+
+
+.main{
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../back.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.reghead{
+    position: absolute;
+    top: 10px;
+    color: #00ffca;
+}
+
+.formdiv{
+    width: 70%;
+    /* background-color: #00ffef; */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgb(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    border-radius: 59px;
+    box-shadow: black 0px 0px 14px -5px;
+}
+
+
+
+
+.innformdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+label
+{
+    text-align: center;
+    margin-top: 31px;
+    margin-bottom: 3px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d1fff5;
+}
+
+input{
+    width: 31%;
+    padding: 5px 5px 5px 10px;
+    background-color: rgba(0, 255, 222, 0.21);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    border-radius: 17px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input:focus{
+    background-color: rgba(0, 255, 221, 0.553);
+}
+
+
+button{
+
+    margin: 25px 0px;
+    width: 15%;
+    padding: 5px;
+    font-size: 13px;
+    background-color: #00ffca;
+    color: #957575;
+    font-weight: bold;
+    border-radius: 23px;
+    border-style: none;
+    box-shadow: black 0px 0px 5px -2px;
+}
+
+
+button:hover{
+    cursor: pointer;
+
+}
+
+
+
+/* login css */
+
+.loginhead{
+    margin-bottom: 20px;
+    color: #00ffca;
+}
+
+
+.button{
+    position: absolute;
+    right:20px;
+    margin: 25px 0px;
+    width: fit-content;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+    background-color: #00ffca;
+    color: #957575;
+    font-weight: bold;
+    border-radius: 23px;
+    border-style: none;
+    box-shadow: black 0px 0px 5px -2px;
+    
+}
+
+.button:hover{
+    cursor: pointer;
+  }
+
+  .forgot{
+    color:rgb(43, 0, 108);
+    margin-bottom: 10px;
+  }
+
+  .forgot:hover{
+    cursor: pointer;
+  }
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="./style.css">
+        <title></title>
+        <script src="./index.js"></script>
+    </head>
+
+    <body>
+        <div class="main">
+            <h1 class="loginhead">Login form</h1>
+            <div class="formdiv">
+                <a class="button" href="./registration.html">Registration</a>
+            <form onsubmit="validate()" autocomplete="off">
+                    <div class="innformdiv">
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" required>
+                    <label for="password">Password:</label>
+                    <input id="password" type="Password" required>
+                    <input class="button" type="reset" style="bottom: 0px;">
+                    <button  type="submit">Login</button>
+                    <p class="forgot" onclick="forgot()">forgot password?</p>
+                </div>
+                
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

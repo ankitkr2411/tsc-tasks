@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../CSS/style.css">
+        <script src="../JS/script.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="nav">
+                <a class="logo" src="./index.html"><img src="../images/logo.png"/></a>
+                <div class="list">
+                    <span class="litxt">Home</span>
+                    <span class="litxt" style="padding-top: 4px; border-bottom: 2px solid #c4008f;">Products</span>
+                    <span class="litxt">Gallery</span>
+                    <span class="litxt">Contact</span>
+                </div>
+                <a class="cartbox">
+                    <img class="cartlogo" src="../images/cartlogo.png">
+                    <p>0</p>
+                </a>
+            </div>
+
+            <div class="innercont">
+                <div class="filtbox">
+                    <div class="filtertxt">Filter</div>
+                    <div class="filt">
+                        <div class="filthead" onclick="hide('sort','arrsort')"><span>Sort</span><div class="arrow" ><img class="arr arrsort" src="../images/arrow.png" ></div></div>
+                        <div class="optionbox sort" style="display: none;">
+                        <div class="option"><span class="select sortbox" style="border-radius: 10px;  box-shadow: black 0px 0px 3px -1px inset;" onclick="sort(0)"></span>A-Z</div>
+                        <div class="option"><span class="select sortbox" style="border-radius: 10px;  box-shadow: black 0px 0px 3px -1px inset;" onclick="sort(1)"></span>Z-A</div>
+                        <div class="option"><span class="select sortbox" style="border-radius: 10px;  box-shadow: black 0px 0px 3px -1px inset;" onclick="sort(2)"></span>Price</div>
+                        <div class="option"><span class="select sortbox" style="border-radius: 10px;  box-shadow: black 0px 0px 3px -1px inset;" onclick="sort(3)"></span>Rating</div>
+                    </div>
+                    </div>
+                    <div class="filt">
+                        <div class="filthead" onclick="hide('size','arrsize')"><span>Size</span><div class="arrow" ><img class="arr arrsize" src="../images/arrow.png" ></div></div>
+                        <div class="optionbox size" style="display: none;">
+                        <div class="option"><input type="checkbox" class="select"></input>S</div>
+                        <div class="option"><input type="checkbox" class="select"></input>M</div>
+                        <div class="option"><input type="checkbox" class="select"></input>L</div>
+                        <div class="option"><input type="checkbox" class="select"></input>XL</div>
+                    </div>
+                    </div>
+                    <div class="filt">
+                        <div class="filthead" onclick="hide('pricef','arrprice')"><span>Price</span><div class="arrow" ><img class="arr arrprice" src="../images/arrow.png" ></div></div>
+                        <div class="optionbox pricef" style="display: none;">
+                        <div class="option"><input type="checkbox" class="select"></span>less than 500</div>
+                        <div class="option"><input type="checkbox" class="select"></span>Between 500 - 1500</div>
+                        <div class="option"><input type="checkbox" class="select"></span>Between 1500 - 3000</div>
+                        <div class="option"><input type="checkbox" class="select"></span>Between 3000 - 5000</div>
+                        <div class="option"><input type="checkbox" class="select"></span>Greater then 5000</div>
+                    </div>
+                    </div>
+                    <div class="filt">
+                        <div class="filthead" onclick="hide('color','arrcolor');"><span>Colour</span><div class="arrow" ><img class="arr arrcolor" src="../images/arrow.png" ></div></div>
+                        <div class="optionbox color" style="display: none;">
+                        <div class="option"><input type="checkbox" class="select"></input>Red</div>
+                        <div class="option"><input type="checkbox" class="select"></input>Yellow</div>
+                        <div class="option"><input type="checkbox" class="select"></input>Black</div>
+                        <div class="option"><input type="checkbox" class="select"></input>Pink</div>
+                        <div class="option"><input type="checkbox" class="select"></input>Blue</div>
+                    </div>
+                    </div>
+                </div>
+                <div id="productcont"></div>
+            </div>
+        
+        
+    </div>
+    </body>
+</html>

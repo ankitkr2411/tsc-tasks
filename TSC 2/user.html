@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <title></title>
+    <style>
+      .labelbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 31px;
+        margin-bottom: 3px;
+      }
+
+      .label {
+        margin-right: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #d1fff5;
+      }
+
+      .edit {
+        font-size: 13px;
+        color: blue;
+      }
+
+      .edit:hover {
+        cursor: pointer;
+      }
+
+      .value {
+        width: fit-content;
+    padding: 5px 5px 5px 10px;
+    background-color: rgb(0 255 222 / 34%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    border-radius: 17px;
+    font-size: 14px;
+    font-weight: bold;
+      }
+
+      .ucard {
+        width: 22%;
+        /* background-color: #00ffef; */
+        backdrop-filter: blur(5px);
+        border: 1px solid rgb(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 59px;
+        box-shadow: black 0px 0px 14px -5px;
+      }
+
+      .button {
+        position: static;
+        border-radius: 27px;
+        font-size: 14px;
+        padding: 7px;
+        background-color: #00ffca;
+        color: #957575;
+        margin: 20px 0px;
+      }
+
+      .button:hover {
+        cursor: pointer;
+      }
+
+      .del{
+        bottom:0px;
+        font-size:12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="ucard">
+        <div class="labelbox">
+          <div class="label">Name:</div>
+          <p class="edit" onclick="edit('name')">Edit</p>
+        </div>
+        <div id="uname" class="value">An</div>
+        <div class="labelbox">
+          <div class="label">Email:</div>
+          <p class="edit" onclick="edit('email')">Edit</p>
+        </div>
+        <div id="uemail" class="value"></div>
+        <div class="labelbox">
+          <div class="label">Phone:</div>
+          <p class="edit" onclick="edit('phone')">Edit</p>
+        </div>
+        <div id="uphone" class="value"></div>
+        <div class="button" onclick="logout()">Logout</div>
+        <div class="button del" onclick="del()">Delete User</div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let name = localStorage.getItem("name");
+    let email = localStorage.getItem("email");
+    let phone = localStorage.getItem("phone");
+    document.getElementById("uname").innerHTML = name;
+    document.getElementById("uemail").innerHTML = email;
+    document.getElementById("uphone").innerHTML = phone;
+
+
+    function edit(value)
+    {
+        let newval = prompt(`Enter new ${value}`);
+
+        
+
+        if(newval === "")
+        {
+            alert("Value can't be empty");
+            return;
+        }
+
+        if(value == "email" && (!newval.includes('@') || !newval.includes('.',newval.indexOf("@"))) )
+        {
+            alert("Enter valid Email");
+            return;
+        }
+
+        if(value == "phone" && (newval.length!=10 && !newval.includes([0-9])) )
+        {
+            alert("Enter valid Number");
+            return;
+        }
+
+            localStorage.setItem(value,newval);
+            location.reload();
+
+
+    }
+
+
+    function logout(){
+        window.location.href="./login.html";
+    }
+
+    function del() {
+      localStorage.clear();
+      window.location.href="./registration.html";
+    }
+  </script>
+</html>

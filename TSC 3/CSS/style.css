@@ -60,10 +60,13 @@ img{
     cursor: pointer;
 }
 
+input:active{
+    border: none;
+}
+
 .cartbox{
-    position: absolute;
-    right: 29px;
-    width: 58px;
+
+    width: 29px;
 }
 
 .cartbox:hover{
@@ -72,13 +75,17 @@ img{
 
 .cartbox>p{
     position: absolute;
-    top: 5px;
-    right: 6px;
+    top: 0px;
+    right: 0px;
     padding: 0px 5px;
-    background-color: #e12727;
+    background-color: #262b7c;
     border-radius: 10px;
     color: white;
     font-size: 13px;
+}
+
+.cartlogo{
+    transform: rotateY(180deg);
 }
 
 

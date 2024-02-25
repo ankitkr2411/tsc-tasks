@@ -18,6 +18,8 @@ let s = await saree.json();
 
 
 
+
+
 let d = document.getElementById("productcont");
 
 console.log(s);

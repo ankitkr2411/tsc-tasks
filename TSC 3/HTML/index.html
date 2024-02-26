@@ -3,7 +3,8 @@
 
 <head>
     <link rel="stylesheet" href="../CSS/style.css">
-    <script src="../JS/script.js"></script>
+
+    <title>Task 3</title>
 </head>
 
 <body>
@@ -12,7 +13,7 @@
             <a class="logo" src="./index.html"><img src="../images/logo.png" /></a>
             <div class="list">
                 <span class="litxt">Home</span>
-                <span class="litxt" style="padding-top: 4px; border-bottom: 2px solid #c4008f;">Products</span>
+                <a href="./index.html" class="litxt" style="padding-top: 4px; text-decoration: none;">Products</a>
                 <span class="litxt">Gallery</span>
                 <span class="litxt">Contact</span>
             </div>
@@ -43,10 +44,10 @@
                     <img class="cartlogo" src="../images/wishlistlogo.png">
                     Wishlist
                 </a>
-                <a class="cartbox" style="
+                <a class="cartbox" href="../HTML/cart.html" style="
                 width: 31px; position: relative">
                     <img class="cartlogo" src="../images/cartlogo.png">
-                    <p>4</p>
+                    <p id="numb"></p>
                     Cart
                 </a>
             </div>
@@ -116,5 +117,7 @@
 
     </div>
 </body>
+
+<script src="../JS/script.js"></script>
 
 </html>

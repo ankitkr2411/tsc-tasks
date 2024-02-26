@@ -4,6 +4,10 @@
 let getData = async ()=>
 {
 
+  let l = JSON.parse(localStorage.getItem("cart") || "[]").length;
+
+document.getElementById("numb").innerHTML=l;
+
     let saree = await fetch("https://dineshtextilebackend.onrender.com/saree",{
     method: "GET",
 
@@ -16,11 +20,17 @@ let getData = async ()=>
 
 let s = await saree.json();
 
+data = s;
+
+
+
 
 
 
 
 let d = document.getElementById("productcont");
+
+
 
 console.log(s);
 document.getElementsByClassName("el").innerHTML = "";
@@ -28,10 +38,15 @@ s.map((item,i) => {
     const div = document.createElement("div");
 
   div.className="productdiv";
-         div.innerHTML = `<a class="product" src="" ><div><img class="cardimg" src=${item.colors[0].image[0]}  alt="" /></div><p class="name" >${item.name}</p><p class="desc" >${item.colors[0].description}</p><p class="price" ><span>&#8377;</span>${item.colors[0].price}<span class="disc"></span></p></a>`      
+  let dis =Math.ceil(((item.mrp - item.colors[0].price) / item.mrp) * 100)
+         div.innerHTML = `<div class="product" src="" ><div><img class="cardimg" src=${item.colors[0].image[0]}  alt="" /></div><p class="name" >${item.name}</p><p class="desc" >${item.colors[0].description}</p><p class="price" ><span>&#8377;</span>${item.colors[0].price}<span class="disc" ></span></p><div class='cart' id='${item._id}'>Add To Cart</div></div>`      
         d.appendChild(div);
+        document.getElementById(item._id).addEventListener("click",()=>{
+          addCart(item.name,item.mrp,item.colors[0].color,item.colors[0].image[0],item.colors[0].price,dis,item.colors[0].description,item._id);
 
-        let dis =Math.ceil(((item.mrp - item.colors[0].price) / item.mrp) * 100)
+
+        })
+        
         if(dis > 0)
         {
           document.getElementsByClassName("disc")[i].innerHTML=`<span>&#8377;<span>${item.mrp}</span></span><span> ${dis}%</span>`;
@@ -75,6 +90,24 @@ let sort = (ind) =>{
 
   
 };
+
+
+function addCart(name,mrp,color,image,price,dis,desc,id)
+{
+  
+  let ob = {name,mrp,color,image,price,dis,desc,id};
+  console.log(ob)
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  cart = cart.concat([ob]);
+  console.log(cart)
+  localStorage.setItem("cart",JSON.stringify(cart));
+  document.getElementById("numb").innerHTML=cart.length;
+  console.log(JSON.parse(localStorage.getItem("cart")))
+
+}
+
+
+
 
 
 

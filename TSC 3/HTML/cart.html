@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+<body>
+  <div class="main">
+    <div class="nav">
+      <a class="logo" src="./index.html"><img src="../images/logo.png" /></a>
+      <div class="list">
+        <span class="litxt">Home</span>
+        <a href="./index.html" class="litxt" style="padding-top: 4px; text-decoration: none;">Products</a>
+        <span class="litxt">Gallery</span>
+        <span class="litxt">Contact</span>
+      </div>
+      <input type="text" placeholder="Search" style="
+                        position: absolute;
+        right: 18%;
+        width: 22%;
+        padding: 8px;
+        border-radius: 27px;
+        border: none;
+        font-size: 15px;
+        padding-left: 13px;
+        color: #262b7c;
+        outline: none;
+        box-shadow: black 0px 0px 4px -2px;" />
+      <div style="
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    width: 17%;
+                    position: absolute;
+                    right: 0;">
+        <a class="cartbox">
+          <img class="cartlogo" src="../images/userlogo.png">
+          Ankit
+        </a>
+        <a class="cartbox" style="width: 29px;">
+          <img class="cartlogo" src="../images/wishlistlogo.png">
+          Wishlist
+        </a>
+        <a class="cartbox" style="
+                    width: 31px; position: relative">
+          <img class="cartlogo" src="../images/cartlogo.png">
+          <p id="numb"></p>
+          Cart
+        </a>
+      </div>
+    </div>
+    <div class="inner" id="innerbox">
+      <div class="left" id="leftcont">
+        <div class="add">
+          <div class="addtxtbox">
+            <p class="deli"><span>Deliver to: </span>Ankit Kumar,248009</p>
+            <p class="addtxt">Mogha house,Best Green Valley, Near DIT UNIVERSITY,Dehradun-Mussorie Road, Bhagwantpur,
+              Dehradun</p>
+          </div>
+          <div class="addbtn">CHANGE ADDRESS</div>
+        </div>
+        <div class="offerbox">
+          <p class="avail">Available Offer</p>
+          <p class="offtxt">10% Instant Discount on Kotak Credit & Debit Cards on a min spend of ₹3,000. TCA</p>
+          <p class="show">Show More</p>
+        </div>
+
+      </div>
+      <div class='secbox'>
+
+        <div class='coupon'>
+          <p>COUPONS</p>
+          <div class='applyco'>
+            <p><span>
+                <MdOutlineLocalOffer />
+              </span> APPLY Coupons</p>
+            <p>APPLY</p>
+          </div>
+        </div>
+
+        <div class='pricedet'>
+          <p>PRICE DETAILS ({cart_Items.length})</p>
+          <div class='faredetails'>
+            <p >Total MRP</p>
+            <p id="mrpp"></p>
+          </div>
+
+          <div class='faredetails'>
+            <p>DISCOUNT on MRP</p>
+            <p class='disc' id="disco"></p>
+          </div>
+
+          <div class='faredetails'>
+            <p>Coupon Discount</p>
+            <p class='coup'>Not Applied</p>
+          </div>
+
+          <div class='faredetails'>
+            <p>Convenience Fee <a class="knowmore">Know More</a>
+            </p>
+            <p>10</p>
+          </div>
+
+          <div class='faredetails finalmrp'>
+            <p>Total Amount</p>
+            <p id="total"></p>
+          </div>
+
+        </div>
+
+        <a class="pay">PLACE ORDER</a>
+
+      </div>
+
+
+
+    </div>
+    <div class='footer'>
+      <div class='foticon'>
+
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-ssl.png" width="70" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png" width="60" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png" width="60" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-ae.png" width="60" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-dc.png" width="60" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-nb.png" width="60" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-cod.png" width="60" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-rupay.png" width="60" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-paypal.png" width="60" height="37" />
+        <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-bhim.png" width="60" height="37" />
+      </div>
+      <a to="/contactus">Need Help ? Contact Us</a>
+
+    </div>
+
+  </div>
+  </div>
+</body>
+
+
+
+<script>
+
+  let run = () =>
+  {
+    let d = document.getElementById("leftcont");
+
+    let l = JSON.parse(localStorage.getItem("cart") || "[]").length;
+
+document.getElementById("numb").innerHTML=l;
+
+
+
+
+
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    console.log(cart)
+
+    if (cart.length === 0) {
+      let inn = document.getElementsByClassName("inner")[0];
+      inn.innerHTML = `<div class='container'>
+
+<div class='image'>
+<img class="emptyimg" src="../images/emptycart.png" />
+</div>
+
+<p class='head'>Hey, it feels so light!</p>
+<p class='desc'>There is nothing in your bag.Let's add some items.</p>
+<a class="wish" href="./index.html" style="text-decoration:none">START SHOPPING</a>
+</div>`
+      return;
+    }
+
+    let tprice=0;
+    let tmrp=0;
+
+
+    cart.map((item,i) => {
+
+      const div = document.createElement("div");
+      div.className = "cartcard";
+
+      div.innerHTML = `<img class='crossdel' src="../images/cross.png" />
+    <div class='image'>
+      <a href=""><img src='${item.image}' alt="Product Image" ></img></a></div>
+    <div class='prodetails' >
+
+      <p>${item.name}</p>
+      <p>${item.desc}</p>
+      <p>Sold by:Omnitech Retail</p>
+
+      <div class='colorsize' >
+
+        <div class='color' style=" background-color: ${item.color} " ></div>
+
+        <div class='qty'>Qty:
+          <select name='quant' onChange={setquant} >
+            <option value="1" >1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select></div>
+
+        <div class='size'>Size: <span>L</span></div>
+
+
+      </div>
+
+
+
+      <p class='price'><span>&#8377;${item.price}</span> <span class="mrp" style='text-decoration:line-through'></span> <span class="discount"></span></p>
+      <p><span></span> <b>14 days</b> return available</p>
+      <p><span></span> Delivery by <b>28 JUL</b></p>
+
+
+    </div>
+    <p class='movwish' onClick={carttowish} >Move to Wishlist</p>`
+
+      d.appendChild(div);
+      document.getElementsByClassName("crossdel")[i].addEventListener("click",()=>{
+        delcart(item.id);
+      });
+      if(item.price != item.mrp)
+      {
+        document.getElementsByClassName("mrp")[i].innerHTML = "&#8377;"+item.mrp;
+      }
+      if (item.dis > 0) {
+        document.getElementsByClassName("discount")[i].innerHTML = item.dis+"%";
+      }
+
+      tprice = tprice + Number(item.price);
+      tmrp = tmrp + item.mrp;
+
+
+    })
+
+    console.log(tprice+" "+tmrp)
+    document.getElementById("mrpp").innerHTML = "&#8377;"+tmrp;
+    document.getElementById("disco").innerHTML ="-"+tmrp-tprice;
+    document.getElementById("total").innerHTML = "&#8377;"+(tprice+10);
+
+  };
+
+
+
+  const delcart = (id)=>{
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart = cart.filter((item)=>{
+      return item.id != id;
+    })
+    localStorage.setItem("cart",JSON.stringify(cart));
+    location.reload();
+  }
+
+
+
+
+  run();
+</script>
+
+</html>
